@@ -15,11 +15,15 @@ const addButtonEl = document.getElementById("add-button")
 const shoppingListEl = document.getElementById("shopping-list")
 
 addButtonEl.addEventListener("click", function() {
-    let inputValue = inputFieldEl.value
-    
-    push(shoppingListInDB, inputValue)
-    
-    clearInputFieldEl()
+      let inputValue = inputFieldEl.value;
+      console.log(inputValue);
+      if(inputValue.length !== 0){
+          push(shoppingListInDB, inputValue);
+          clearInputFieldEl();
+      }
+      else{
+        alert("Please Enter List Item.");
+      }
 })
 
 onValue(shoppingListInDB, function(snapshot) {
